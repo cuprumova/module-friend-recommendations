@@ -35,7 +35,8 @@ class CreateRecommendationList
     }
 
     /**
-     * @throws GraphQlNoSuchEntityException
+     * @param array $args
+     * @return array
      * @throws CouldNotSaveException
      */
     public function execute($args): array
@@ -56,6 +57,12 @@ class CreateRecommendationList
         );
     }
 
+    /**
+     * @param int $listId
+     * @param array $productSkus
+     * @return array[]
+     * @throws CouldNotSaveException
+     */
     private function saveRecommendationListProducts(int $listId, array $productSkus)
     {
         $savedRecommendationListProduct = [];
